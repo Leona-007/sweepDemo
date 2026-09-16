@@ -1,0 +1,129 @@
+body{
+    margin: 0;
+    padding: 0;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    height: 100vh;
+}
+.nav{
+    height: 40px;
+    display: flex;
+    justify-content: space-between;
+    line-height:40px;
+    margin-bottom: 10px;
+}
+.base{
+    background-color: yellowgreen;
+    flex: 1;
+    border-radius: 6px;
+    text-align: center;
+}
+.middle{
+    background-color: orange;
+    flex: 1;
+    margin: 0 10px;
+    border-radius: 6px;
+    text-align: center;
+}
+.high{
+    background-color: #913131;
+    flex: 1;
+    border-radius: 6px;
+    text-align: center;
+}
+.center{
+    background-color: #CCCCCC;
+    width: 442px;
+    height: 492px;
+    border-radius: 6px;
+    display: flex;
+    align-items: center;
+    flex-direction: column;
+    padding: 15px;
+    box-sizing: border-box;
+}
+.center-top{
+    width: 100%;
+    /*height: 45px;*/
+    /*width: 404px;*/
+    /*background-color: #ccaaff;*/
+    margin-bottom: 5px;
+}
+.top-content{
+    /*margin: 5px;*/
+    color: #FFFFFF;
+    box-sizing: border-box;
+    border: 2px solid #808080;
+    border-right: #FFFFFF 2px solid;
+    border-bottom: #FFFFFF 2px solid;
+    width: 100%;
+    height: 100%;
+    display: flex;
+    justify-content: space-between;
+    /*background-color: #9acfea;*/
+}
+.top-left{
+    width: 100%;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    /*gap: 5px;*/
+}
+.top-right{
+    width: 100%;
+    display: flex;
+    justify-content: flex-end;
+    align-items: center;
+    /*background-color: rgba(34, 187, 65, 0.5);*/
+}
+.top-btn{
+    width: 90px;
+    height: 100%;
+    line-height: 45px;
+    margin: 0 5px;
+    /*background-color: #9acfea;*/
+}
+.content{
+    width: 100%;
+    height: 100%;
+    /*background-color: #fac;*/
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+.content-box{
+    width: 404px;
+    height: 404px;
+    /*background-color: orange;*/
+    border: 2px solid #808080;
+    border-right:2px solid #FFFFFF;
+    border-bottom:2px solid #FFFFFF;
+    display: flex;
+    flex-wrap: wrap;
+    align-content: flex-start;
+}
+.block{
+    width: 25.25px;
+    height: 25.25px;
+    box-sizing: border-box;
+    background-color: #CCCCCC;
+    border: 2px solid #808080;
+    border-left:2px solid #ffffff;
+    border-top:2px solid #FFFFFF;
+    text-align: center;
+    color: red;
+}
+.stop{
+    position: absolute;
+    width: 100vw;
+    height: 100vh;
+    background-color: rgba(117, 114, 114, 0.44);
+    display: none;
+}
+button{
+    position: absolute;
+    left: 50%;
+    top: 50%;
+    transform: translate(-50%,-50%);
+}

@@ -1,0 +1,27 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      .box {
+        width: 200px;
+        height: 200px;
+        background-color: skyblue;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- event -->
+    <div class="box"></div>
+    <script>
+      const box = document.querySelector(".box")
+      // 1. 点击的是哪个DOM元素， 哪行哪列的数据
+    //   row, col  sqaure[row][col].status = (status+1) % 3
+      box.oncontextmenu = function (e) {
+        e.preventDefault()
+      }
+    </script>
+  </body>
+</html>

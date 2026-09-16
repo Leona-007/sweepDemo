@@ -1,0 +1,109 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <style>
+      #app {
+        width: 470px;
+        height: 470px;
+        display: flex;
+        gap: 10px;
+        flex-wrap: wrap;
+      }
+      #app div {
+        width: 50px;
+        height: 50px;
+        text-align: center;
+        background-color: skyblue;
+        line-height: 50px;
+        color: #fff;
+      }
+    </style>
+  </head>
+  <body>
+    <!-- 什么时候写静态结构：
+        1. 不会变化
+        2. 会变的内容也写静态结构，目的：表示样式， 写完之后静态结构删除
+    -->
+    <div id="app">
+      <!-- 64 div -->
+    </div>
+    <script>
+      const app = document.querySelector("#app")
+      // 表示：尺寸
+      const size = 8
+      const num = 10
+      // 动态 数据 => 结构/页面
+      // const nums = [3,1,2, 4, 7, 7, 5, 8, 9];
+
+      // 1. 初始化棋盘
+      const squire = []
+      for (let i = 0; i < size; i++) {
+        squire[i] = []
+        for (let j = 0; j < size; j++) {
+          squire[i][j] = 0  // {value: 0, open: false, status: 2, dom:div}
+        }
+      }
+      // 2. 初始化雷 num 个 -1 随机
+      // 1
+      // squire[2][3] = -1;  
+      for (let i = 0; i < num; ) {
+        const row = parseInt(Math.random() * 8)
+        const col = parseInt(Math.random() * 8)
+        // 判断
+        if (squire[row][col] !== -1) {
+          // 有效的位置
+          squire[row][col] = -1
+          i++
+        }
+      }
+      // 3. 统计棋盘每个格子的数量
+      for (let row = 0; row < size; row++) {
+        for (let col = 0; col < size; col++) {
+          if (squire[row][col] !== -1) {
+            squire[row][col] = countLei(row, col)
+          }
+        }
+      }
+
+      function countLei(row, col) {
+        // squire
+        const tempArr = []
+        let count = 0
+        tempArr.push([row - 1, col - 1])
+        tempArr.push([row - 1, col])
+        tempArr.push([row - 1, col + 1])
+        tempArr.push([row, col - 1])
+        tempArr.push([row, col + 1])
+        tempArr.push([row + 1, col - 1])
+        tempArr.push([row + 1, col])
+        tempArr.push([row + 1, col + 1])
+        // tempArr = [[0, 1], [-1, -1]]
+        tempArr.forEach((item) => {
+          const [r, c] = item
+          if (r < 0 || c < 0 || r >= size || c >= size) {
+            return
+          }
+          if(squire[r][c] == -1) {
+            count++
+          }
+        })
+        return count
+      }
+
+      for (let i = 0; i < size; i++) {
+        for (let j = 0; j < size; j++) {
+          const div = document.createElement("div")
+          div.dataset.row = i; // dataset.row  data-row
+          div.dataset.col = j;  //dataset.col data-col
+          div.innerText = squire[i][j] == -1 ? "💣" : squire[i][j]
+          app.appendChild(div)
+        }
+      }
+      // [] => [[], [], [], [], [], [], [], []]
+      // [] => [0, 0, 0, 0, 0, 0, 0, 0]
+    </script>
+  </body>
+</html>
